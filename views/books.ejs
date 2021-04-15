@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="flex justify-between h-12 items-center">
+    <a href="/">
+      <h2 class="text-blue-500 text-center px-4">Bookstore</h2>
+    </a>
+    <nav>
+      <a href="/books/new">
+        <button class="btn-green mr-3">Add Book</button>
+      </a>
+    </nav>
+  </header>
+  <div class="xl:container bg-white p-4">
+    <h1 class="text-gray-500 text-center m-3">Lising Books</h1>
+    <% books.forEach(book => { %>
+      <section class="container mx-auto bg-gray-200 p-2">
+        <div class="mb-3 border-b border-gray-400">
+          <h2 class="text-blue-400"><%= book.title %></h2>
+          <p class="text-gray-700 pb-3"><%= book.description.substr(0, 200) + "..." %></p>
+          <a href="/books/<%= book._id %>">
+            <button class="btn-green mb-3">Show</button>
+          </a>
+        </div>
+      </section>
+    <% }) %>
+    
+  </div>
+</body>
+
+</html>

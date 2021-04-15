@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 text-white font-bold py-1 px-3 rounded;
+  }
+
+  .btn-blue:hover {
+    @apply bg-blue-700;
+  }
+
+  .btn-green {
+    @apply bg-green-500 text-white font-bold py-1 px-3 rounded;
+  }
+
+  .btn-green:hover {
+    @apply bg-green-400;
+  }
+
+  .btn-teal {
+    @apply border-teal-500 border-2 text-gray-700 font-bold py-1 px-3 rounded;
+  }
+
+  .btn-teal:hover {
+    @apply bg-teal-700 text-white;
+  }
+
+  .btn-red {
+    @apply bg-red-500 text-white font-bold py-1 px-3 rounded;
+  }
+
+  .btn-red:hover {
+    @apply bg-red-700;
+  }
+
+  .form-control {
+    @apply pl-2 block w-full border-2 mb-2 rounded h-10;
+  }
+
+  .form-textarea {
+    @apply pl-2 block w-full border mb-2 rounded
+  }
+}

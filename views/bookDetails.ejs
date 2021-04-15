@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="flex justify-between h-12 items-center bg-gray-300">
+    <a href="/">
+      <h2 class="text-blue-500 text-center px-4">Bookstore</h2>
+    </a>
+    <nav>
+      <a href="/books">
+        <button class="btn-green mr-3">Back</button>
+      </a>
+    </nav>
+  </header>
+  <div class="xl:container p-5">
+    <h1 class="text-green-700 pb-4"><%= book.title %></h1>
+    <h3 class="text-blue-500 pb-3"><%= book.author %></h3>
+    <p class="text-gray-500"><%= book.description %></p>
+    <h3 class="text-orange-500 py-2">Price: <%= book.price %></h3>
+    <div class="flex pt-3">
+      <a href="/books/<%= book.id %>/edit">
+        <button class="btn-blue mr-3">Edit</button>
+      </a>
+      <a href="/books/<%= book.id %>/delete">
+        <button class="btn-red">delete</button>
+      </a>
+    </div>
+
+    <div class="mt-8">
+      <form class="w-1/3 mt-2 mb-10" action="/books/<%= book.id %>/comments" method="POST">
+        <textarea class="form-textarea text-gray-500" name="content" rows="3" placeholder="Add Comment..."></textarea>
+        <input class="btn-green" type="submit" value="Add Comment">
+      </form>
+    </div>
+
+    
+    <div class="bg-gray-100 rounded p-2 my-2">
+      <h2 class="text-gray-700">Comments</h2>
+      <hr class="mb-4">
+      <% book.comments.forEach(comment => { %>
+        <div class="pb-5">
+          <p class="text-gray-500"><%= comment.content %></p>
+          <a href="/comments/<%= comment.id %>/edit">
+            <button class="text-xs text-white bg-blue-500 px-1 rounded">Edit</button>
+          </a>
+          <a href="/comments/<%= comment.id %>/delete">
+            <button class="text-xs text-white bg-red-500 px-1 rounded">delete</button>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+
+</html>
